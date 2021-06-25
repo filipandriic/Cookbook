@@ -3,12 +3,12 @@
       <div class="row">
         <div class="col">
           <table class="table table-active">
-            <tr>
-              <td><router-link to="/"><img src="../assets/logo.png" alt="">Home</router-link></td>
-              <td><router-link to="/receipts">Receipts</router-link></td>
-              <td><router-link to="/addreceipt">Add Receipt</router-link></td>
-              <td><router-link to="/myaccount">My Account</router-link></td>
-              <td><router-link to="/aboutus">About Us</router-link></td>
+            <tr class="align-middle text-center">
+              <td><router-link to="/"><img src="../assets/home.png" alt="">&nbsp; Home</router-link></td>
+              <td><router-link to="/receipts"><img src="../assets/receipts.png" alt="">&nbsp; Receipts</router-link></td>
+              <td><router-link to="/addreceipt"><img src="../assets/add.png" alt="">&nbsp;Add Receipt</router-link></td>
+              <td><router-link to="/myaccount"><img src="../assets/user.png" alt="">&nbsp;My Account</router-link></td>
+              <td><router-link to="/aboutus"><img src="../assets/about.png" alt="">&nbsp;About Us</router-link></td>
             </tr>
           </table>
         </div>
@@ -21,19 +21,23 @@
     #nav a {
       font-weight: bold;
       color: #2c3e50;
+      text-decoration: none;
     }
 
     #nav img {
-      width: 50px;
-    }
-
-    #nav table.td {
-      display: flex;
-      justify-content: center;
+      width: 30px;
     }
 
     #nav a.router-link-exact-active {
-      color: #42b983;
+      color: rgb(78, 185, 252);
+    }
+
+    #nav table {
+      border: darkslategray solid 3px;
+    }
+
+    #nav td {
+      border-left: darkseagreen dotted 2px;
     }
 </style>
 
