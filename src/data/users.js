@@ -1,15 +1,21 @@
 const users = [
     {
         username: 'admin',
-        password: 'admin'
+        password: 'admin',
+        name: 'Admin',
+        surname: 'Admin'
     },
     {
         username: 'filip',
-        password: 'filip'
+        password: 'filip',
+        name: 'Filip',
+        surname: 'Andric'
     },
     {
         username: 'uros',
-        password: 'uros'
+        password: 'uros',
+        name: 'Uros',
+        surname: 'Stankovic'
     }
 ];
 

@@ -14,9 +14,8 @@ export default {
   created(){
     if (localStorage.getItem('users') == null) {
       localStorage.setItem('users', JSON.stringify(users));
-    } else {
-      this.allUsers = JSON.parse(localStorage.getItem('users'));
     }
+    this.allUsers = JSON.parse(localStorage.getItem('users'));
   }
 }
 </script>
