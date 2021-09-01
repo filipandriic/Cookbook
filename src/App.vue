@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div id="nav">
-      <Navigation :language="language"></Navigation>
+      <Navigation></Navigation>
     </div>
     <div class="background">
-      <router-view :language="language" />
+      <router-view/>
     </div>
   </div>
 </template>
@@ -40,7 +40,6 @@ body {
 * {
   box-sizing: border-box;
 }
-
 </style>
 
 <script>
@@ -48,11 +47,6 @@ import Navigation from "@/components/Navigation.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      language: 'en'
-    }
-  },
   components: {
     Navigation,
   },

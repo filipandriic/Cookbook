@@ -8,17 +8,17 @@
       <h2 class="RecipeGroup__header">{{ group }}</h2>
       <div
         class="RecipeGroup__card"
-        v-for="receipt of formattedReceipts[group]"
-        :key="receipt.name"
+        v-for="(receipt, index) of formattedReceipts[group]"
+        :key="index"
       >
         <div class="RecipeGroup__row">
-          <span>Name: {{ receipt.name }}</span>
-          <span>Duration: {{ receipt.duration }} mins</span>
+          <span>{{dictionary[language].name}}: {{ receipt.name }}</span>
+          <span>{{dictionary[language].duration}}: {{ receipt.duration }} mins</span>
         </div>
         <div class="RecipeGroup__row">
-          <span>Difficulty: {{ formatDifficulty(receipt.difficulty) }}</span>
+          <span>{{dictionary[language].difficulty}}: {{ formatDifficulty(receipt.difficulty) }}</span>
           <span @click="selectedReceipt = receipt" class="RecipeGroup__link"
-            >View recipe</span
+            >{{dictionary[language].viewRecipe}}</span
           >
         </div>
       </div>
@@ -39,7 +39,7 @@ table {
 
 .card {
   background-image: linear-gradient(rgb(225, 233, 230), rgb(240, 240, 240));
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px #585858;
   transition: 0.3s;
   border-radius: 5px;
   width: 40%;
@@ -86,11 +86,14 @@ table {
 
 .RecipeGroup__header {
   margin: 32px 0;
+  font-family: cursive;
+  color: darkseagreen;
 }
 </style>
 
 <script>
 import Recipe from "@/components/Recipe.vue";
+import dictionary from "@/data/dictionary";
 
 export default {
   data() {
@@ -99,6 +102,8 @@ export default {
       receipts: [],
       formattedReceipts: {},
       selectedReceipt: null,
+      language: "",
+      dictionary,
     };
   },
   components: {
@@ -115,6 +120,8 @@ export default {
     },
   },
   created() {
+    this.language = localStorage.getItem("language");
+
     if (localStorage.getItem("receipts") == null) this.receipts = [];
     else this.receipts = JSON.parse(localStorage.getItem("receipts"));
 
